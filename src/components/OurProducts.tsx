@@ -39,42 +39,6 @@ const OurProducts = () => {
       mainPrice: 40,
       rating: 4.6,
     },
-    {
-      name: "Cauliflower",
-      discountedPrice: 27,
-      mainPrice: 35,
-      rating: 4.1,
-    },
-    {
-      name: "Cauliflower",
-      discountedPrice: 27,
-      mainPrice: 35,
-      rating: 4.1,
-    },
-    {
-      name: "Cauliflower",
-      discountedPrice: 27,
-      mainPrice: 35,
-      rating: 4.1,
-    },
-    {
-      name: "Cauliflower",
-      discountedPrice: 27,
-      mainPrice: 35,
-      rating: 4.1,
-    },
-    {
-      name: "Cauliflower",
-      discountedPrice: 27,
-      mainPrice: 35,
-      rating: 4.1,
-    },
-    {
-      name: "Cauliflower",
-      discountedPrice: 27,
-      mainPrice: 35,
-      rating: 4.1,
-    },
   ];
 
   return (

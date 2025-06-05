@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
@@ -36,7 +37,13 @@ const Card: React.FC<CardProps> = ({ Product }) => {
 
       {/* Product Image */}
       <div className="flex justify-center">
-        <img src="https://i.ibb.co/9zzL051/cat-9.png" alt="" />
+        <Image
+          src="https://i.ibb.co/9zzL051/cat-9.png"
+          alt="Red Apple"
+          width={400}
+          height={400}
+          priority
+        />
       </div>
 
       {/* Product Name */}
