@@ -41,7 +41,7 @@ const servicesData = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <div className="flex justify-center flex-wrap gap-8">
+    <div className="flex justify-center gap-10 flex-wrap">
       {servicesData.map((service) => (
         <ServiceCard
           key={service.title}
