@@ -1,5 +1,7 @@
 // import OurProducts from "@/components/OurProducts";
+import HowToOrderSection from "@/components/HowToOrderSection";
 import OffersSection from "@/components/OffersSection";
+import OurProducts from "@/components/OurProducts";
 import ServicesSection from "@/components/ServicesSection";
 
 export default function Home() {
@@ -15,10 +17,15 @@ export default function Home() {
         <OffersSection />
       </section>
 
+      {/* Offers Section */}
+      <section className="mb-24">
+        <HowToOrderSection />
+      </section>
+
       {/* Our Product Section */}
-      {/* <section className="w-11/12 lg:container mx-auto my-24">
+      <section className="w-11/12 lg:container mx-auto my-24">
         <OurProducts />
-      </section> */}
+      </section>
     </main>
   );
 }

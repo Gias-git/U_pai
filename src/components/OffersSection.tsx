@@ -1,11 +1,8 @@
-// src/components/OffersSection.tsx
-
 import React from "react";
 import OfferCard from "./OfferCard";
 import { BsWhatsapp, BsReceipt, BsShop, BsHeadphones } from "react-icons/bs";
 import { FaFlask, FaFirstAid } from "react-icons/fa";
 
-// Data for all the cards, matching the OfferCardProps interface
 const offerData = [
   {
     icon: <BsWhatsapp size={22} />,
