@@ -4,6 +4,7 @@
 import { Banner } from "@/components/Banner";
 import CategoryGridSection from "@/components/CategoryGridSection";
 import HowToOrderSection from "@/components/HowToOrderSection";
+import ImageSlider from "@/components/ImageSlider";
 import OffersSection from "@/components/OffersSection";
 import OurProducts from "@/components/OurProducts";
 import ServicesSection from "@/components/ServicesSection";
@@ -30,7 +31,9 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <section className="w-11/12 mx-auto my-24">
-        <Banner images={bannerImages} />
+        {/* <Banner images={bannerImages} /> */}
+
+          <ImageSlider />
       </section>
 
       {/* Services Section */}
