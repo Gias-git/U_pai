@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar"
 import Footer from "@/components/shared/Footer";
+import LeftsideCategoryContainer from "@/components/LeftsideCategoryContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +28,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen overflow-hidden`}
       >
         <Navbar />
-        {children}
-        <Footer />
+
+        <div className="flex  scrollbar-hide ">
+          <div className="overflow-scroll scrollbar-hide  w-3/12">
+            <LeftsideCategoryContainer></LeftsideCategoryContainer>
+          </div>
+
+
+          <div className="overflow-scroll h-screen scrollbar-hide w-9/12 ">
+            {children}
+            <Footer />
+          </div>
+
+        </div>
+
+
       </body>
     </html>
   );
