@@ -30,9 +30,9 @@ const categories = [
 export default function LeftsideCategoryContainer() {
   return (
     <div className="w-full bg-white border-r-2 border-gray-100 pl-4">
-      <h3 className="flex items-center gap-2 font-semibold text-green-700 mb-3">
+      {/* <h3 className="flex items-center gap-2 font-semibold text-green-700 mb-3">
         <LayoutGrid className="w-6 h-6 text-teal-700" /> Shop By Category
-      </h3>
+      </h3> */}
 
       <ul className="space-y-2 max-h-[85vh] scroll-thin overflow-y-auto">
         {categories.map((cat, idx) => (
