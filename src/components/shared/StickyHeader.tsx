@@ -30,7 +30,7 @@ const StickyHeader = () => {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 bg-white shadow transition-transform duration-300">
+    <div className="sticky top-0 z-50 bg-white shadow  transition-transform duration-300">
       <Header />
       <CategoryNavbar />
     </div>
