@@ -28,17 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen overflow-hidden `}
       >
         <Navbar />
 
         <div className="flex  scrollbar-hide ">
-          <div className="overflow-scroll scrollbar-hide  w-3/12">
+          <div className="overflow-scroll scrollbar-hide hidden lg:block  w-3/16">
             <LeftsideCategoryContainer></LeftsideCategoryContainer>
           </div>
 
 
-          <div className="overflow-scroll h-screen scrollbar-hide w-9/12 ">
+          <div className="overflow-scroll h-screen scrollbar-hide lg:w-13/16 ">
             {children}
             <Footer />
           </div>

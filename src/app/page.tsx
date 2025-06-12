@@ -30,14 +30,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <section className="w-11/12 mx-auto my-24">
+      <section className="w-11/12 mx-auto my-10">
         {/* <Banner images={bannerImages} /> */}
 
           <ImageSlider />
       </section>
 
       {/* Services Section */}
-      <section className="w-11/12 mx-auto my-24">
+      <section className=" mx-auto w-full mb-10 ">
         <ServicesSection />
       </section>
 

@@ -15,20 +15,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   background,
 }) => {
   return (
-    <div
-      className="flex justify-between items-center p-5 rounded-2xl text-white w-[280px] h-[120px] shadow-lg overflow-hidden"
+     <div
+      className="flex justify-between gap-3 items-center p-4 rounded-2xl text-white min-w-[260px] md:min-w-[320px] lg:min-w-[170px] xl:w-1/5 h-[120px] shadow-lg overflow-hidden"
       style={{ background }}
     >
-      <div className="max-w-[60%]">
-        <h3 className="mb-2 text-xl font-bold">{title}</h3>
-        <p className="text-sm leading-tight">{description}</p>
+      <div className="w-2/3">
+        <h3 className="mb-1 text-base font-semibold text-black">{title}</h3>
+        <p className="text-sm text-gray-700 leading-tight">{description}</p>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center w-1/3">
         <Image
           src={imageUrl}
           alt={`${title} service`}
-          width={70}
-          height={70}
+          width={60}
+          height={60}
           className="object-contain"
         />
       </div>
