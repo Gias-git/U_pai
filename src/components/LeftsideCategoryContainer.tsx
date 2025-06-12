@@ -2,6 +2,7 @@
 
 import { FiChevronRight } from "react-icons/fi";
 import Image from "next/image";
+import { LayoutGrid } from "lucide-react"; // ✅ correct import
 
 const sharedImage =
   "https://i.ibb.co/vC3NX9wB/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-JCb-G9jay1i-X2-Nvbm-Zp-Z1wv-MFwv-MTI3-LVdlb-Gxu-ZXNz-LV.webp";
@@ -30,14 +31,14 @@ export default function LeftsideCategoryContainer() {
   return (
     <div className="w-full bg-white border-r-2 border-gray-100 pl-4">
       <h3 className="flex items-center gap-2 font-semibold text-green-700 mb-3">
-        <span className="text-lg"></span> Shop By Category
+        <LayoutGrid className="w-6 h-6 text-teal-700" /> Shop By Category
       </h3>
 
-      <ul className="space-y-2 max-h-[85vh] scroll-thin overflow-y-auto ">
+      <ul className="space-y-2 max-h-[85vh] scroll-thin overflow-y-auto">
         {categories.map((cat, idx) => (
           <li
             key={idx}
-            className={`flex items-center justify-between px-3 border-b-[0.5px] border-gray-200 py-1  cursor-pointer hover:bg-gray-100 ${
+            className={`flex items-center justify-between px-3 border-b-[0.5px] border-gray-200 py-1 cursor-pointer hover:bg-gray-100 ${
               cat.highlight ? "border-t pt-3" : ""
             }`}
           >

@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import ServiceCard from "./ServiceCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const servicesData = [
   {
@@ -40,19 +42,86 @@ const servicesData = [
 ];
 
 const ServicesSection: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isDownRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+
+  const scrollByAmount = 270;
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDownRef.current = true;
+    scrollRef.current?.classList.add("cursor-grabbing");
+    startXRef.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    scrollLeftRef.current = scrollRef.current?.scrollLeft || 0;
+  };
+
+  const handleMouseLeave = () => {
+    isDownRef.current = false;
+    scrollRef.current?.classList.remove("cursor-grabbing");
+  };
+
+  const handleMouseUp = () => {
+    isDownRef.current = false;
+    scrollRef.current?.classList.remove("cursor-grabbing");
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDownRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startXRef.current) * 1.5;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeftRef.current - walk;
+    }
+  };
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -scrollByAmount, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: scrollByAmount, behavior: "smooth" });
+  };
+
   return (
-    <div className="flex justify-center gap-10 flex-wrap">
-      {servicesData.map((service) => (
-        <ServiceCard
-          key={service.title}
-          title={service.title}
-          description={service.description}
-          imageUrl={service.imageUrl}
-          background={service.background}
-        />
-      ))}
+    <div className="relative w-full ">
+      {/* Left Arrow */}
+      <button
+        className="absolute lg:hidden left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md hover:bg-gray-100"
+        onClick={scrollLeft}
+      >
+        <ChevronLeft />
+      </button>
+
+      {/* Right Arrow */}
+      <button
+        className="absolute lg:hidden right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white rounded-full shadow-md hover:bg-gray-100"
+        onClick={scrollRight}
+      >
+        <ChevronRight />
+      </button>
+
+      {/* Scrollable wrapper */}
+      <div className="overflow-hidden select-none ">
+        <div
+          ref={scrollRef}
+          className="flex justify-center gap-4 px-8 py-4 cursor-grab overflow-x-auto no-scrollbar scroll-m-1.5 "
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
+          {servicesData.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default ServicesSection;
+
+
+

@@ -26,7 +26,7 @@ const OfferCard: React.FC<OfferCardProps> = ({
   return (
     <a
       href={href}
-      className={`relative flex flex-col justify-between w-60 h-64 p-4 rounded-2xl text-slate-800 shadow-md transform hover:scale-105 transition-transform duration-300 ${cardBgClass}`}
+      className={`relative flex flex-col justify-between min-w-[260px] md:min-w-[320px] lg:min-w-[270px] h-64 p-4 rounded-2xl text-slate-800 shadow-md transform hover:scale-105 transition-transform duration-300 ${cardBgClass}`}
     >
       {/* Icon Circle */}
       <div
