@@ -1,7 +1,6 @@
 "use client";
 
 // import OurProducts from "@/components/OurProducts";
-import { Banner } from "@/components/Banner";
 import CategoryGridSection from "@/components/CategoryGridSection";
 import HowToOrderSection from "@/components/HowToOrderSection";
 import ImageSlider from "@/components/ImageSlider";
@@ -10,28 +9,12 @@ import OurProducts from "@/components/OurProducts";
 import ServicesSection from "@/components/ServicesSection";
 
 export default function Home() {
-  const bannerImages = [
-    {
-      src: "https://i.ibb.co/NdjnQPxc/two-students-studying-together-online-with-laptop-park-1150-4115.jpg",
-      alt: "Explore the latest tech gadgets",
-      href: "/products",
-    },
-    {
-      src: "https://i.ibb.co/bg8hJ4KG/top-view-unrecognizable-hacker-performing-cyberattack-night-1098-18706.jpg",
-      alt: "Get exclusive deals on electronics",
-      href: "/deals",
-    },
-    {
-      src: "https://i.ibb.co/WQh3cYS/What-are-the-most-breathtaking-natural-attractions-in-Sylhet.jpg",
-      alt: "Join our newsletter for updates",
-      href: "/subscribe",
-    },
-  ];
+ 
 
   return (
     <main className="min-h-screen">
-      <section className="w-11/12 mx-auto my-10">
-        {/* <Banner images={bannerImages} /> */}
+      <section className="w-full md:w-11/12 mx-auto my-10">
+        
 
           <ImageSlider />
       </section>

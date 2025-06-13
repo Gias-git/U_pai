@@ -60,7 +60,7 @@ export default function ImageSlider() {
           <div
             key={index}
             className={`h-1 w-8 mx-1 ${
-              index === currentIndex ? "bg-[#beff46]" : "bg-gray-300"
+              index === currentIndex ? "bg-[#33938C]" : "bg-gray-300"
             } rounded-full transition-all duration-300`}
           />
         ))}
