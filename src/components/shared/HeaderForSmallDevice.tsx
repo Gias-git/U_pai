@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDown, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { BsMessenger, BsShop } from 'react-icons/bs';
@@ -13,18 +13,10 @@ import { TbCoinTaka } from 'react-icons/tb';
         'Search for "baby products"',
     ];
 
-    const categories = [
-        "All",
-        "Medicines",
-        "Healthcare",
-        "Baby Products",
-        "Personal Care",
-    ];
 
 const HeaderForSmall: React.FC = () => {
    
       const [placeholderIndex, setPlaceholderIndex] = useState(0);
-      const [selectedCategory, setSelectedCategory] = useState("All");
 
      // Cycle placeholder text every 3 seconds
       useEffect(() => {
@@ -68,21 +60,7 @@ const HeaderForSmall: React.FC = () => {
             {/* Search Bar */}
             <div className="flex flex-1 max-w-2xl mx-4">
                 <div className="flex w-full bg-[#F7FAFC] rounded-xl overflow-hidden">
-                    {/* Dropdown using select */}
-                    <div className="relative flex items-center">
-                        <select
-                            value={selectedCategory}
-                            onChange={(e) => setSelectedCategory(e.target.value)}
-                            className="px-4 py-2 pr-8 text-sm font-semibold text-gray-700 bg-transparent appearance-none outline-none"
-                        >
-                            {categories.map((category) => (
-                                <option key={category} value={category}>
-                                    {category}
-                                </option>
-                            ))}
-                        </select>
-                        <ChevronDown className="absolute right-2 w-4 h-4 text-gray-600 pointer-events-none" />
-                    </div>
+                  
 
                     {/* Input */}
                     <input
