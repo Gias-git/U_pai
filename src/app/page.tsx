@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <section className="w-11/12 mx-auto my-10">
+      <section className="w-full md:w-11/12 mx-auto my-10">
         
 
           <ImageSlider />
