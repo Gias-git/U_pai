@@ -2,7 +2,7 @@
 
 import { FiChevronRight } from "react-icons/fi";
 import Image from "next/image";
-import { LayoutGrid } from "lucide-react"; // ✅ correct import
+
 
 const sharedImage =
   "https://i.ibb.co/vC3NX9wB/ey-Jid-WNr-ZXQi-Oi-Jhcm9n-Z2-Ei-LCJr-ZXki-Oi-JCb-G9jay1i-X2-Nvbm-Zp-Z1wv-MFwv-MTI3-LVdlb-Gxu-ZXNz-LV.webp";
