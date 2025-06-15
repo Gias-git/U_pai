@@ -2,8 +2,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, PhoneCall } from "lucide-react";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const categories = [
-  "Home",
   "Medicine",
   "Lab Test",
   "Healthcare",
@@ -59,8 +61,10 @@ const CategoryNavbar = () => {
     return () => scrollEl.removeEventListener("scroll", checkScrollPosition);
   }, []);
 
+  const pathname = usePathname(); //
+
   return (
-    <nav   id="category-navbar" className="flex items-center justify-between px-4 py-2 bg-white shadow-sm">
+    <nav id="category-navbar" className="flex items-center justify-between px-4 py-2 bg-white shadow-sm">
       {/* Shop By Category */}
       <div className="flex items-center gap-2 text-teal-700 font-semibold w-2/12 cursor-pointer flex-shrink-0">
         <div className="w-4 h-4 grid grid-cols-2 gap-[2px]">
@@ -71,7 +75,7 @@ const CategoryNavbar = () => {
         </div>
         <span>Shop By Category</span>
       </div>
-      
+
 
       {/* Left Side */}
       <div className="flex items-center gap-6 w-8/12 overflow-hidden  ">
@@ -94,14 +98,33 @@ const CategoryNavbar = () => {
           className="flex items-center gap-6 overflow-x-auto no-scrollbar whitespace-nowrap flex-grow"
           style={{ scrollBehavior: "smooth" }}
         >
-          {categories.map((category, idx) => (
-            <span
-              key={idx}
-              className="text-sm text-gray-600 hover:text-teal-700 cursor-pointer whitespace-nowrap"
-            >
-              {category}
-            </span>
-          ))}
+          <span
+            className={`text-sm cursor-pointer whitespace-nowrap ${pathname === "/" ? "text-teal-700 font-semibold" : "text-gray-600 hover:text-teal-700"
+              }`}
+          >
+            <Link href="/">
+              Home
+            </Link>
+          </span>
+
+          {categories.map((category, idx) => {
+            const categoryPath = `/${category.toLowerCase().replace(/\s+/g, "-")}`;
+            const isActive = pathname === categoryPath;
+
+            return (
+              <span
+                key={idx}
+                className={`text-sm cursor-pointer whitespace-nowrap hover:underline hover:underline-offset-4  ${isActive ? "text-teal-700 font-semibold" : "text-gray-600 hover:text-teal-700"
+                  }`}
+              >
+                <Link href={categoryPath}>
+                  {category}
+                </Link>
+              </span>
+            );
+          })}
+
+
         </div>
       </div>
 

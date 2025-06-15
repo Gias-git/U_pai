@@ -7,6 +7,7 @@ import Header from "@/components/shared/Header";
 import CategoryNavbar from "@/components/shared/CategoryNavbar";
 import HeaderForSmall from "@/components/shared/HeaderForSmallDevice";
 import NavbarMobileBottom from "@/components/shared/NavbarMobileBottom";
+import ClientOnlyLayout from "@/components/shared/ClientOnlyLayout";
 
 
 
@@ -37,41 +38,41 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen overflow-hidden `}
-      >
-        <div className="hidden lg:block">
-          <Header></Header>
-        </div>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
 
-        <div className=" lg:hidden">
-          <HeaderForSmall></HeaderForSmall>
-        </div>
+        <ClientOnlyLayout>
+          <div className="hidden lg:block">
+            <Header></Header>
+          </div>
 
-        <div className="hidden lg:block">
-          <CategoryNavbar></CategoryNavbar>
-        </div>
+          <div className=" lg:hidden">
+            <HeaderForSmall></HeaderForSmall>
+          </div>
 
-
-        <div className="flex  scrollbar-hide ">
-          <div className="overflow-scroll scrollbar-hide hidden lg:block  w-3/16">
-            <LeftsideCategoryContainer></LeftsideCategoryContainer>
+          <div className="hidden lg:block">
+            <CategoryNavbar></CategoryNavbar>
           </div>
 
 
-          <div className="overflow-scroll h-screen scrollbar-hide lg:w-13/16 ">
-            {children}
-            <Footer />
+          <div className="flex  scrollbar-hide ">
+            <div className="overflow-scroll scrollbar-hide hidden lg:block  w-3/16">
+              <LeftsideCategoryContainer></LeftsideCategoryContainer>
+            </div>
+
+
+            <div className="overflow-y-auto max-h-screen scrollbar-hide lg:w-13/16">
+              {children}
+              <Footer />
+            </div>
+
           </div>
 
-        </div>
 
+          <div className="bg-white sticky bottom-0 min-h-5 py-2 md:hidden z-20">
+            <NavbarMobileBottom></NavbarMobileBottom>
+          </div>
 
-        <div className="bg-white sticky bottom-0 min-h-5 py-2 md:hidden z-20">
-          <NavbarMobileBottom></NavbarMobileBottom>
-        </div>
-
-
+        </ClientOnlyLayout>
 
       </body>
     </html>
