@@ -54,7 +54,7 @@ const offerData = [
     iconBgColor: "bg-orange-500",
     cardBgClass: "bg-gradient-to-br from-orange-200 to-orange-300",
     topText: "UPTO",
-    mainText: "10% OFF",
+    mainText: "11% OFF",
     subText: "16778",
     buttonText: "Call To Order",
     buttonTextColor: "text-orange-600",
@@ -157,8 +157,8 @@ const OffersSection: React.FC = () => {
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
           >
-             {offerData.map((offer) => (
-          <OfferCard key={offer.mainText} {...offer} />
+             {offerData.map((offer,index) => (
+          <OfferCard key={index} {...offer} />
         ))}
           </div>
         </div>
