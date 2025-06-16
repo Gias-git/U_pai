@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductProps> = ({
   newPrice,
 }) => {
   return (
-    <div className="relative border min-w-[180px] border-gray-200 rounded-xl p-3 bg-white shadow-sm hover:shadow-md transition">
+    <div className="relative border lg:min-w-[180px] border-gray-200 rounded-xl p-3 bg-white shadow-sm hover:shadow-md transition">
       {/* Discount Badge */}
       <div className="absolute top-2 left-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-md">
         {discountPercent}% OFF
