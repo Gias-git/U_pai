@@ -12,7 +12,7 @@ import { products } from "@/app/medicine/products";
 const flashSalesData = [
   {
     title: "Defend Against Covid-19",
-    bgColor: "bg-blue-100",
+    bgColor: "bg-blue-200",
   },
   {
     title: "Shop Your Glow 🌟",
