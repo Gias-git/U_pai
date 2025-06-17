@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({ Product }) => {
 
   return (
     <div className="border-[#ececec] border-[1px] rounded-[8px] p-[15px] text-black space-y-3">
-      {/* Discount Percentage */}
+      {/* Discount Percentageaaaa */}
       <div className="bg-[#0baf9a] rounded-lg text-[#fff] text-center w-[50px]">
         25%
       </div>
