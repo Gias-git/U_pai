@@ -16,9 +16,9 @@ const categories = [
   "Home Care",
   "Supplement",
   "Food and Nutrition",
-  "Food and Nutrition",
-  "Food and Nutrition",
-  "Food and Nutrition",
+  "Pet Care",
+  "Veterinary",
+  "Homeopathy",
 ];
 
 const CategoryNavbar = () => {
