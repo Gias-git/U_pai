@@ -6,7 +6,7 @@ import SortedCard from "@/components/sortedCard/SortedCard";
 import ProductGrid from "@/components/ProductCard/ProductGrid";
 import { products } from "@/app/medicine/products";
 
-export default function LabTest() {
+export default function Healthcare() {
   return (
     <div className="min-h-screen w-11/12 mx-auto">
       {/* breadcrumb navigation */}
