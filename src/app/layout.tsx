@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
 
         <ClientOnlyLayout>
           <div className="hidden lg:block">
@@ -54,7 +54,7 @@ export default function RootLayout({
           </div>
 
 
-          <div className="flex  scrollbar-hide ">
+          <div className="flex  scrollbar-hide lg:h-[83vh] xl:h-[84vh]">
             <div className="overflow-scroll scrollbar-hide hidden lg:block  w-3/16">
               <LeftsideCategoryContainer></LeftsideCategoryContainer>
             </div>

@@ -1,12 +1,12 @@
 import Image from "next/image";
-import medicine from "@/assets/medicine.webp"
+import labTest from "@/assets/labTest.png"
 import SubCategoryCards from "@/components/CategoryPageSubCatagoryCard/SubCategoryCards";
 import Breadcrumb from "@/components/breadcrumb_navigation/Breadcrumb";
 import SortedCard from "@/components/sortedCard/SortedCard";
 import ProductGrid from "@/components/ProductCard/ProductGrid";
 import { products } from "@/app/medicine/products";
 
-export default function Medicines() {
+export default function LabTest() {
   return <div className="min-h-screen w-11/12 mx-auto">
 
     {/* breadcrumb navigation */}
@@ -16,14 +16,14 @@ export default function Medicines() {
     </div>
 
     <div>
-      <SortedCard></SortedCard>
+      <SortedCard ></SortedCard>
     </div>
 
 
     {/* Image Section */}
     <div className="">
       <Image
-        src={medicine}
+        src={labTest}
         alt="Picture of the author"
         className="rounded-3xl"
       >
