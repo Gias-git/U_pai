@@ -5,7 +5,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ProductCard from '../ProductCard/ProductCard';
 
 interface Product {
-  id: number;
+   id: string;
+  slug: string;
   name: string;
   imageSrc: string;
   strength: string;
@@ -86,6 +87,8 @@ export default function FlashSale({
           {products.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
+              slug ={product.slug}
               imageSrc={product.imageSrc}
               name={product.name}
               strength={product.strength}

@@ -3,13 +3,25 @@
 import { Suspense } from 'react';
 import Image from "next/image";
 import medicine from "@/assets/medicine.webp";
-import SubCategoryCards from "@/components/CategoryPageSubCatagoryCard/SubCategoryCards";
-import Breadcrumb from "@/components/breadcrumb_navigation/Breadcrumb";
-import SortedCard from "@/components/sortedCard/SortedCard";
-import ProductGrid from "@/components/ProductCard/ProductGrid";
-import { products } from "@/app/medicine/products";
-import GlobalLoader from '@/components/GlobalLoader/GlobalLoader';
+import dynamic from 'next/dynamic';
 
+import Breadcrumb from "@/components/breadcrumb_navigation/Breadcrumb";
+import GlobalLoader from '@/components/GlobalLoader/GlobalLoader';
+import { products } from "@/app/medicine/products";
+
+// Lazy-loaded
+const SubCategoryCards = dynamic(() => import('@/components/CategoryPageSubCatagoryCard/SubCategoryCards'), {
+  // @ts-expect-error - suspense is valid but not in default type definition
+  suspense: true
+});
+const SortedCard = dynamic(() => import('@/components/sortedCard/SortedCard'), {
+  // @ts-expect-error - suspense is valid but not in default type definition
+  suspense: true
+});
+const ProductGrid = dynamic(() => import('@/components/ProductCard/ProductGrid'), {
+  // @ts-expect-error - suspense is valid but not in default type definition
+  suspense: true
+});
 
 export default function Medicines() {
   return (
@@ -17,16 +29,20 @@ export default function Medicines() {
       <div className="min-h-screen w-11/12 mx-auto">
 
         {/* Breadcrumb Navigation */}
+
         <div className="py-6">
           <Breadcrumb />
         </div>
 
+
         {/* Sort Filter Section */}
+
         <div>
           <SortedCard />
         </div>
 
         {/* Banner Image + Categories + Products */}
+
         <div>
           <Image
             src={medicine}
@@ -43,9 +59,8 @@ export default function Medicines() {
             <ProductGrid products={products} />
           </div>
         </div>
-        
+
       </div>
     </Suspense>
-
   );
 }
