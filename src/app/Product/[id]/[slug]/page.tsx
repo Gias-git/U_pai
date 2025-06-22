@@ -1,9 +1,11 @@
 // File: app/Product/[id]/[slug]/page.tsx
 
-import React from "react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
+
+// Optional: You can define this based on your actual use
+type PageParams = { id: string; slug: string };
 
 interface Product {
   id: string;
@@ -29,7 +31,6 @@ interface Product {
   ingredients: string[];
 }
 
-// Fetch from public folder
 async function getProduct(id: string) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const res = await fetch(`${baseUrl}/ProductDetails.json`);
@@ -70,12 +71,12 @@ async function getProduct(id: string) {
   };
 }
 
+// ✅ Fix starts here
+type Props = {
+  params: PageParams;
+};
 
-export default async function ProductDetailsPage({
-  params,
-}: {
-  params: { id: string; slug: string };
-}) {
+export default async function ProductDetailsPage({ params }: Props) {
   const product = await getProduct(params.id);
   if (!product) return notFound();
 
