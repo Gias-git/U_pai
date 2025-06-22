@@ -118,3 +118,18 @@
 //     </div>
 //   );
 // }
+
+
+
+export default function singleProduct() {
+  return <>
+    <h1>No Product here</h1>
+  </>
+}
+
+
+
+
+
+
+
