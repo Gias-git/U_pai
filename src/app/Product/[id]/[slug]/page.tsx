@@ -1,12 +1,9 @@
+// File: app/Product/[id]/[slug]/page.tsx
+
 import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-
-interface Props {
-  params: { id: string; slug: string };
-  searchParams: { pv_id?: string; category?: string; subcategory?: string };
-}
 
 interface Product {
   id: string;
@@ -31,7 +28,6 @@ interface Product {
   finish: string;
   ingredients: string[];
 }
-
 
 // Fetch from public folder
 async function getProduct(id: string) {
@@ -75,13 +71,13 @@ async function getProduct(id: string) {
 }
 
 
-
-
-export default async function ProductDetailsPage({ params }: Props) {
+export default async function ProductDetailsPage({
+  params,
+}: {
+  params: { id: string; slug: string };
+}) {
   const product = await getProduct(params.id);
   if (!product) return notFound();
-
-  
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -113,12 +109,10 @@ export default async function ProductDetailsPage({ params }: Props) {
               width={300}
               height={300}
               className="mx-auto transform transition-transform duration-300 group-hover:scale-110 hover:transform hover:translate-x-5"
-
             />
           </div>
           <div className="mt-4 text-gray-600 text-sm">⏱ {product.deliveryTime}</div>
         </div>
-
 
         <div>
           <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
@@ -148,7 +142,6 @@ export default async function ProductDetailsPage({ params }: Props) {
 
       {/* Description */}
       <div className="mt-8">
-        {/* Product Details Info Box */}
         <div className="mt-6 border rounded-md p-4 bg-gray-50">
           <h4 className="text-md font-semibold mb-2">Product Details</h4>
           <div className="text-sm text-gray-700 space-y-1">
@@ -169,9 +162,7 @@ export default async function ProductDetailsPage({ params }: Props) {
             </ul>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 }
