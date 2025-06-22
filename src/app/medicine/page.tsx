@@ -1,43 +1,66 @@
+'use client';
+
+import { Suspense } from 'react';
 import Image from "next/image";
-import medicine from "@/assets/medicine.webp"
-import SubCategoryCards from "@/components/CategoryPageSubCatagoryCard/SubCategoryCards";
+import medicine from "@/assets/medicine.webp";
+import dynamic from 'next/dynamic';
+
 import Breadcrumb from "@/components/breadcrumb_navigation/Breadcrumb";
-import SortedCard from "@/components/sortedCard/SortedCard";
-import ProductGrid from "@/components/ProductCard/ProductGrid";
+import GlobalLoader from '@/components/GlobalLoader/GlobalLoader';
 import { products } from "@/app/medicine/products";
 
+// Lazy-loaded
+const SubCategoryCards = dynamic(() => import('@/components/CategoryPageSubCatagoryCard/SubCategoryCards'), {
+  // @ts-expect-error - suspense is valid but not in default type definition
+  suspense: true
+});
+const SortedCard = dynamic(() => import('@/components/sortedCard/SortedCard'), {
+  // @ts-expect-error - suspense is valid but not in default type definition
+  suspense: true
+});
+const ProductGrid = dynamic(() => import('@/components/ProductCard/ProductGrid'), {
+  // @ts-expect-error - suspense is valid but not in default type definition
+  suspense: true
+});
+
 export default function Medicines() {
-  return <div className="min-h-screen w-11/12 mx-auto">
+  return (
+    <Suspense fallback={<GlobalLoader />}>
+      <div className="min-h-screen w-11/12 mx-auto">
 
-    {/* breadcrumb navigation */}
-    <div className="py-6">
-      <Breadcrumb></Breadcrumb>
-      {/* Your page content here */}
-    </div>
+        {/* Breadcrumb Navigation */}
 
-    <div>
-      <SortedCard></SortedCard>
-    </div>
+        <div className="py-6">
+          <Breadcrumb />
+        </div>
 
 
-    {/* Image Section */}
-    <div className="">
-      <Image
-        src={medicine}
-        alt="Picture of the author"
-        className="rounded-3xl"
-      >
-      </Image>
+        {/* Sort Filter Section */}
 
+        <div>
+          <SortedCard />
+        </div>
 
-      <div>
-        <SubCategoryCards></SubCategoryCards>
+        {/* Banner Image + Categories + Products */}
+
+        <div>
+          <Image
+            src={medicine}
+            alt="Category Banner"
+            className="rounded-3xl w-full h-auto object-cover"
+            priority
+          />
+
+          <div>
+            <SubCategoryCards />
+          </div>
+
+          <div className="my-10">
+            <ProductGrid products={products} />
+          </div>
+        </div>
+
       </div>
-
-
-      <div className="my-10">
-         <ProductGrid products={products} />
-      </div>
-    </div>
-  </div>
+    </Suspense>
+  );
 }

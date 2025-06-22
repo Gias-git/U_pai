@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, PhoneCall } from "lucide-react";
 
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,15 +17,17 @@ const categories = [
   "Home Care",
   "Supplement",
   "Food and Nutrition",
-  "Food and Nutrition",
-  "Food and Nutrition",
-  "Food and Nutrition",
+  "Pet Care",
+  "Veterinary",
+  "Homeopathy",
 ];
 
 const CategoryNavbar = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+
+  
 
   // Check scroll position to toggle arrow visibility
   const checkScrollPosition = () => {
